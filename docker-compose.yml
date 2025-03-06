@@ -1,0 +1,29 @@
+services:
+  spartan-app-no-db-container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cundullaht/spartan-app-new-nonsecure-no-db:latest
+    container_name: spartan-app-no-db-container
+    ports:
+      - '8000:8000'
+
+  spartan-app-secure-no-db-container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cundullaht/spartan-app-new-secure-no-db:latest
+    container_name: spartan-app-secure-no-db-container
+    ports:
+      - '7000:7000'
+
+  hr-ords-no-db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cundullaht/hr-ords-no-db:latest
+    container_name: hr-ords-no-db
+    environment:
+      HR_APP_ENV: dev
+    ports:
+      - '1000:1000'
